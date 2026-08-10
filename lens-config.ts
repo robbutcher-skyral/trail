@@ -10,6 +10,8 @@ import {
   protomapsBasemap,
 } from "@adk/protomaps-basemap-style";
 
+import forestFire from "./src/plugins/forest-fire-plugin";
+
 const LOCAL_PROTOMAPS_FLAVORS: ProtomapsFlavorName[] = ["dark"];
 
 const TILES_URL = "pmtiles:///tiles/merseyside.pmtiles";
@@ -62,7 +64,17 @@ const MAP_CONFIG = {
 } satisfies MapConfig;
 
 const FEATURES = [
-  // Add features here (e.g. from \`lens add-plugin\`)
+  {
+    id: "forest-fire",
+    name: "Forest Fire",
+    routePrefix: "/forest-fire",
+    plugins: [
+      forestFire({
+        name: "Forest Fire",
+        version: "1.0.0",
+      }),
+    ],
+  },
 ] satisfies FeaturesConfig;
 
 export default {
