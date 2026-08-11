@@ -1,3 +1,4 @@
+import { addLayerOrderingService } from "@adk/amphi-maps";
 import {
   FeaturesConfig,
   MapConfig,
@@ -5,10 +6,11 @@ import {
   getLensEnvVar,
 } from "@adk/lens-react";
 
+import forestFire from "./src/plugins/forest-fire-plugin";
+
 const REACT_CONFIG = {
   LOGO: getLensEnvVar("LOGO", ""),
   TITLE: getLensEnvVar("TITLE", "Forest Fire Digital Twin"),
-  // HOME_PAGE: MyHomePage,
   DEBUG: true,
 } satisfies ReactConfig;
 
@@ -21,7 +23,8 @@ const MAP_CONFIG = {
   MAX_LATITUDE: getLensEnvVar("MAX_LATITUDE", "90"),
   MIN_LONGITUDE: getLensEnvVar("MIN_LONGITUDE", "-180"),
   MAX_LONGITUDE: getLensEnvVar("MAX_LONGITUDE", "180"),
-  TILE_SOURCE_NAME: getLensEnvVar("TILE_SOURCE_NAME", ""),
+  TILE_SERVER_URL: getLensEnvVar("TILE_SERVER_URL", "http://localhost:3000"),
+  TILE_SOURCE_NAME: getLensEnvVar("TILE_SOURCE_NAME", "merseyside"),
   BOUNDING_BOX: [
     getLensEnvVar("MIN_LONGITUDE", "-1.6"),
     getLensEnvVar("MIN_LATITUDE", "50.5"),
@@ -31,18 +34,27 @@ const MAP_CONFIG = {
   // Set the zoom range for your map
   MIN_ZOOM: getLensEnvVar("MIN_ZOOM", "2"),
   MAX_ZOOM: getLensEnvVar("MAX_ZOOM", "20"),
-  OPERATORS: [],
-  BASEMAPS: [
-    "protomaps-dark",
-    "protomaps-light",
-    "protomaps-white",
-    "protomaps-grayscale",
-    "osm-positron",
+  OPERATORS: [
+    addLayerOrderingService(
+      [["background", "middle", "foreground"]],
+      "background",
+    ),
   ],
+  BASEMAPS: ["osm-positron"],
 } satisfies MapConfig;
 
 const FEATURES = [
-  // Add features here (e.g. from \`lens add-plugin\`)
+  {
+    id: "forest-fire",
+    name: "Forest Fire",
+    routePrefix: "/forest-fire",
+    plugins: [
+      forestFire({
+        name: "Forest Fire",
+        version: "1.0.0",
+      }),
+    ],
+  },
 ] satisfies FeaturesConfig;
 
 export default {

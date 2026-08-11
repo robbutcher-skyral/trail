@@ -1,8 +1,17 @@
 import lensConfigPlugin from "@adk/lens-react/vite-plugin";
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { protomapsAssetsPlugin } from "@adk/vite-plugin-protomaps-assets";
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), lensConfigPlugin()],
-})
+  plugins: [
+    react(),
+    tailwindcss(),
+    lensConfigPlugin(),
+    protomapsAssetsPlugin({ flavors: ["dark"] }),
+  ],
+  resolve: {
+    dedupe: ["@emotion/react", "@emotion/styled"],
+  },
+});

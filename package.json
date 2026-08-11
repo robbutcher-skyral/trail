@@ -10,14 +10,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@adk/amphi": "^2.1.0",
+    "@adk/amphi-maps": "^1.0.2",
+    "@adk/amphi-playback": "^0.3.2",
+    "@adk/lens-design": "^1.0.0",
     "@adk/lens-react": "^4.0.3",
+    "@adk/protomaps-basemap-style": "^0.1.1",
+    "@adk/vite-plugin-protomaps-assets": "^1.0.0",
+    "@deck.gl-community/editable-layers": "^9.3.2",
+    "@mui/icons-material": "^6.0.0",
+    "@mui/material": "^6.0.0",
+    "@tailwindcss/vite": "^4.3.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "@adk/amphi": "^1.9.0",
-    "@adk/amphi-maps": "^0.8.1",
-    "react-intl": "^10.1.0",
     "react-router-dom": "^7.13.2",
-    "rxjs": "^7.8.2"
+    "rxjs": "^7.8.2",
+    "tailwindcss": "^4.3.1"
   },
   "devDependencies": {
     "@adk/lens-cli": "^0.1.22",
@@ -33,5 +41,6 @@
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.65.0",
     "vite": "^8.2.0"
-  }
+  },
+  "packageManager": "yarn@4.12.0"
 }
