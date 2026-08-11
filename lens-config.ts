@@ -5,25 +5,12 @@ import {
   ReactConfig,
   getLensEnvVar,
 } from "@adk/lens-react";
-import {
-  type ProtomapsFlavorName,
-  protomapsBasemap,
-} from "@adk/protomaps-basemap-style";
 
 import forestFire from "./src/plugins/forest-fire-plugin";
-
-const LOCAL_PROTOMAPS_FLAVORS: ProtomapsFlavorName[] = ["dark"];
-
-const TILES_URL = "pmtiles:///tiles/merseyside.pmtiles";
-
-const basemaps = LOCAL_PROTOMAPS_FLAVORS.map((flavor) =>
-  protomapsBasemap({ flavor, tilesUrl: TILES_URL }),
-);
 
 const REACT_CONFIG = {
   LOGO: getLensEnvVar("LOGO", ""),
   TITLE: getLensEnvVar("TITLE", "Forest Fire Digital Twin"),
-  // HOME_PAGE: MyHomePage,
   DEBUG: true,
 } satisfies ReactConfig;
 
@@ -53,14 +40,7 @@ const MAP_CONFIG = {
       "background",
     ),
   ],
-  BASEMAPS: [
-    "protomaps-dark",
-    "protomaps-light",
-    "protomaps-white",
-    "protomaps-grayscale",
-    "osm-positron",
-    ...basemaps,
-  ],
+  BASEMAPS: ["osm-positron"],
 } satisfies MapConfig;
 
 const FEATURES = [
