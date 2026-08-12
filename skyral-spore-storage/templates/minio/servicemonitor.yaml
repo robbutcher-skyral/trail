@@ -1,0 +1,37 @@
+{{- if .Values.monitoring.serviceMonitor.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: "{{ .Release.Name }}-minio-service-monitor"
+  namespace:  {{ .Release.Namespace }}
+spec:
+  {{- $protocol := include "minio.protocol" . }}
+  endpoints:
+  - interval: 5s
+    path: /minio/v2/metrics/cluster
+    port: {{ $protocol }}-minio
+    scheme: {{ $protocol }}
+    tlsConfig:
+      insecureSkipVerify: true
+  - interval: 5s
+    path: /minio/v2/metrics/bucket
+    port: {{ $protocol }}-minio
+    scheme: {{ $protocol }}
+    tlsConfig:
+      insecureSkipVerify: true
+  - interval: 5s
+    path: /minio/v2/metrics/resource
+    port: {{ $protocol }}-minio
+    scheme: {{ $protocol }}
+    tlsConfig:
+      insecureSkipVerify: true
+  - interval: 5s
+    path: /minio/v2/metrics/node
+    port: {{ $protocol }}-minio
+    scheme: {{ $protocol }}
+    tlsConfig:
+      insecureSkipVerify: true
+  selector:
+    matchLabels:
+      v1.min.io/tenant: spore-object-store
+{{- end }}

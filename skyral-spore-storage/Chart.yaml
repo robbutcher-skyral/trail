@@ -1,0 +1,10 @@
+apiVersion: v2
+dependencies:
+- name: operator
+  repository: https://operator.min.io
+  version: 7.1.1
+description: skyral-spore-storage is a helm chart containing operators that provide
+  skyral storage storage solutions
+name: skyral-spore-storage
+type: application
+version: 4.3.11

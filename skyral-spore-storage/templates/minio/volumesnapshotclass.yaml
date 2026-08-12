@@ -1,0 +1,9 @@
+{{ if .Values.snapshots.enabled }}
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshotClass
+metadata:
+  name: {{ .Release.Name }}-snapshot-class
+  namespace: {{ .Release.Namespace }}
+driver: {{ .Values.snapshots.volumeSnapshotClass.driver }}
+deletionPolicy: {{ .Values.snapshots.volumeSnapshotClass.deletionPolicy }}
+{{- end }}

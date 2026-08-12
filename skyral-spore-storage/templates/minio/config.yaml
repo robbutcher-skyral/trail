@@ -1,0 +1,23 @@
+{{- if .Values.tenant.createRootUserSecret }}
+# MinIO Server environment variables https://min.io/docs/minio/linux/reference/minio-server/minio-server.html
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Values.tenant.serverConfiguration.name }}
+  namespace: {{ .Release.Namespace }}
+type: Opaque
+stringData:
+  config.env: |-
+    export MINIO_ROOT_USER="minio"
+
+    {{- /*
+    The lookup prevents regenerating the password each time a helm upgrade is made.
+    This does not work when applying templates manually with helm template.
+    */}}
+    {{- $existingSecret := (lookup "v1" "Secret" .Release.Namespace .Values.tenant.serverConfiguration.name ) }}
+    {{- if $existingSecret }}
+    export {{ index $existingSecret.data "config.env" | b64dec | regexFind "MINIO_ROOT_PASSWORD.*" }}
+    {{- else }}
+    export MINIO_ROOT_PASSWORD="{{ randAlphaNum 20 }}"
+    {{- end }}
+{{- end }}

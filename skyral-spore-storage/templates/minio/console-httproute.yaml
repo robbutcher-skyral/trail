@@ -1,0 +1,41 @@
+{{- if and .Values.tenant.console.enableIngress .Values.global.env.domain }}
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: "{{ .Release.Name }}-minio-console"
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "6"
+spec:
+  parentRefs:
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    name: {{ .Values.global.gateway.name }}
+    namespace: {{ .Values.global.gateway.namespace }}
+  hostnames:
+  - "{{ .Release.Name }}-minio-console.{{ .Values.global.env.domain }}"
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
+    filters:
+    # The MinIO console authenticates via its own login API (credentials in the request body)
+    # plus a session cookie, and never uses the HTTP `Authorization` header. When this route is
+    # fronted by an SSO gateway, the ext-authz layer (oauth2-proxy) overwrites the upstream
+    # `Authorization` header with the SSO bearer token, which the console then misreads as a
+    # MinIO credential and rejects with "incorrect api key auth". Stripping the header here (the
+    # filter runs after ext-authz) lets console login work behind the gateway; it is a no-op
+    # when the console is not behind such a gateway.
+    - type: RequestHeaderModifier
+      requestHeaderModifier:
+        remove:
+          - Authorization
+    backendRefs:
+    - group: ""
+      kind: Service
+      name: {{ .Values.tenant.name }}-console
+      port: {{ .Values.tenant.console.servicePort }}
+      weight: 1
+{{- end }}

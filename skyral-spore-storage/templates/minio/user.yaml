@@ -1,0 +1,21 @@
+{{- if .Values.tenant.createUserSecret }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name:  {{ .Values.tenant.userName }}
+  namespace: {{ .Release.Namespace }}
+type: Opaque
+data:
+  {{- /*
+  The lookup prevents regenerating the secrets each time a helm upgrade is made.
+  This does not work when applying templates manually with helm template.
+  */}}
+  {{- $existingSecret := (lookup "v1" "Secret" .Release.Namespace .Values.tenant.userName ) }}
+  {{- if $existingSecret }}
+  CONSOLE_ACCESS_KEY: {{ $existingSecret.data.CONSOLE_ACCESS_KEY }}
+  CONSOLE_SECRET_KEY: {{ $existingSecret.data.CONSOLE_SECRET_KEY }}
+  {{- else }}
+  CONSOLE_ACCESS_KEY: {{ randAlphaNum 20 | b64enc }}
+  CONSOLE_SECRET_KEY: {{ randAlphaNum 20 | b64enc }}
+  {{- end }}
+{{- end }}
