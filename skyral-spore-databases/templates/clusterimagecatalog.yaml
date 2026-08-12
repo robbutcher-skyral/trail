@@ -1,0 +1,23 @@
+{{- if .Values.clusterImageCatalog.enabled -}}
+apiVersion: postgresql.cnpg.io/v1
+kind: ClusterImageCatalog
+metadata:
+  name: postgresql
+  namespace: {{ .Release.Namespace }}
+spec:
+{{- with .Values.clusterImageCatalog.postgres.images }}
+  images:
+    {{- toYaml . | nindent 4 }}
+{{- end }}
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: ClusterImageCatalog
+metadata:
+  name: postgis
+  namespace: {{ .Release.Namespace }}
+spec:
+{{- with .Values.clusterImageCatalog.postgis.images }}
+  images:
+    {{- toYaml . | nindent 4 }}
+{{- end -}}
+{{- end -}}

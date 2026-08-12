@@ -1,0 +1,31 @@
+{{- if .Values.testing.enabled }}
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: test-cluster
+spec:
+  instances: 1
+  imageCatalogRef:
+    apiGroup: postgresql.cnpg.io
+    kind: ClusterImageCatalog
+    name: postgresql
+    major: 16
+  storage:
+    size: 128Mi
+  enableSuperuserAccess: true
+  monitoring:
+    enablePodMonitor: true
+  plugins:
+    - name: barman-cloud.cloudnative-pg.io
+      parameters:
+        barmanObjectName: test-minio
+  postgresql:
+    parameters:
+      # Explicitly configure locale GUC parameters so that invalid or missing
+      # locale settings in hardened images are detected during CI testing.
+      # See: https://skyral.atlassian.net/browse/PENG-5127
+      lc_messages: "C"
+      lc_monetary: "C"
+      lc_numeric: "C"
+      lc_time: "C"
+{{- end }}

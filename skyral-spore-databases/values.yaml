@@ -1,0 +1,93 @@
+istioExtras:
+  enabled: true
+  waypoint:
+    enabled: true
+
+# https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#time-zones
+timeZone: "UTC"
+
+volumeSnapshotClass:
+  enabled: true
+  driver: pd.csi.storage.gke.io
+  deletionPolicy: Delete
+
+cloudnative-pg:
+  # CRDs from the operator subchart are disabled, and they are manually included in the chart in crds/crds.yaml.
+  # This is because the subchart does not have them in the correct directory for Helm to detect and install them first.
+  # I have created an issue here to resolve this: https://github.com/cloudnative-pg/charts/issues/319
+  crds:
+    create: false
+
+  image:
+    repository: europe-west2-docker.pkg.dev/skyr-artefacts/ghcr-io/cloudnative-pg/cloudnative-pg
+    # renovate: datasource=docker depName=cloudnative-pg packageName=europe-west2-docker.pkg.dev/skyr-artefacts/ghcr-io/cloudnative-pg/cloudnative-pg
+    tag: 1.30.0-ubi9
+
+  imagePullSecrets: []
+
+  monitoring:
+    podMonitorEnabled: true
+    grafanaDashboard:
+      create: true
+
+clusterImageCatalog:
+  enabled: true
+
+  postgres:
+    images:
+      - major: 16
+        # renovate: datasource=docker depName=hardened/postgresql-ubi9-pg16 packageName=europe-west2-docker.pkg.dev/skyr-artefacts/skyral-images/hardened/postgresql-ubi9
+        image: europe-west2-docker.pkg.dev/skyr-artefacts/skyral-images/hardened/postgresql-ubi9:16.11-ubi9-v1.2.14
+      - major: 17
+        # renovate: datasource=docker depName=hardened/postgresql-ubi9-pg17 packageName=europe-west2-docker.pkg.dev/skyr-artefacts/skyral-images/hardened/postgresql-ubi9
+        image: europe-west2-docker.pkg.dev/skyr-artefacts/skyral-images/hardened/postgresql-ubi9:17.7-ubi9-v1.2.14
+      - major: 18
+        # renovate: datasource=docker depName=hardened/postgresql-ubi9-pg18 packageName=europe-west2-docker.pkg.dev/skyr-artefacts/skyral-images/hardened/postgresql-ubi9
+        image: europe-west2-docker.pkg.dev/skyr-artefacts/skyral-images/hardened/postgresql-ubi9:18.1-ubi9-v1.2.14
+
+  postgis:
+    images:
+      - major: 16
+        # renovate: datasource=docker depName=hardened/postgis-ubi9-pg16 packageName=europe-west2-docker.pkg.dev/skyr-artefacts/skyral-images/hardened/postgis-ubi9
+        image: europe-west2-docker.pkg.dev/skyr-artefacts/skyral-images/hardened/postgis-ubi9:16.11-3.6-ubi9-v1.2.18
+      - major: 17
+        # renovate: datasource=docker depName=hardened/postgis-ubi9-pg17 packageName=europe-west2-docker.pkg.dev/skyr-artefacts/skyral-images/hardened/postgis-ubi9
+        image: europe-west2-docker.pkg.dev/skyr-artefacts/skyral-images/hardened/postgis-ubi9:17.7-3.6-ubi9-v1.2.18
+      - major: 18
+        # renovate: datasource=docker depName=hardened/postgis-ubi9-pg18 packageName=europe-west2-docker.pkg.dev/skyr-artefacts/skyral-images/hardened/postgis-ubi9
+        image: europe-west2-docker.pkg.dev/skyr-artefacts/skyral-images/hardened/postgis-ubi9:18.1-3.6-ubi9-v1.2.18
+
+scheduledAutoscaling:
+  enabled: true
+
+  image:
+    repository: europe-west2-docker.pkg.dev/skyr-artefacts/skyral-images/spore-databases/postgres-scaler
+  imagePullSecrets: []
+
+  databases: []
+  # - name: my-postgres-cluster
+  #   namespace: skyral
+  #   onSchedule: "0 8 * * 1-5"
+  #   offSchedule: "0 18 * * 1-5"
+
+testing:
+  enabled: false
+
+# Barman Cloud Plugin Installation
+# Set to true if the plugin is not pre-installed in your environment.
+# In Skyral production environments, this should be false as the plugin
+# is typically provided by platform infrastructure or installed separately.
+# Enable this for:
+#   - Testing/CI environments
+#   - Self-contained deployments
+#   - Multi-namespace deployments where each namespace needs its own plugin
+#
+# The plugin manifest is embedded in the chart at:
+#   deploy/manifests/barman-cloud-plugin.yaml
+# Update using:
+#   scripts/update-cloudnative-dependencies.sh --plugin-version vX.Y.Z
+installPlugin:
+  enabled: false
+  version: "0.12.0"
+  # renovate: datasource=docker depName=hardened/k8s-tools-ubi9 packageName=europe-west2-docker.pkg.dev/skyr-artefacts/skyral-images/hardened/k8s-tools-ubi9
+  kubectlImage: "europe-west2-docker.pkg.dev/skyr-artefacts/skyral-images/hardened/k8s-tools-ubi9:ubi9-v1.6.27"

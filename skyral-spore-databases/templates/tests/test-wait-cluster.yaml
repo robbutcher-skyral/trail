@@ -1,0 +1,35 @@
+{{- if .Values.testing.enabled }}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ .Release.Name }}-test-wait-cluster"
+  annotations:
+    "helm.sh/hook": test
+    "helm.sh/hook-weight": "-1"
+spec:
+  serviceAccountName: test-runner
+  containers:
+    - name: wait
+      image: bitnami/kubectl:latest
+      command:
+        - /bin/bash
+        - -c
+        - |
+          set -e
+          echo "Waiting for test-cluster to be ready..."
+          kubectl wait --for=condition=Ready cluster/test-cluster --timeout=4m
+
+          echo "Waiting for superuser secret to exist..."
+          for i in {1..30}; do
+            if kubectl get secret test-cluster-superuser 2>/dev/null; then
+              echo "✅ Secret test-cluster-superuser exists"
+              exit 0
+            fi
+            echo "Attempt $i/30: Secret not found, waiting..."
+            sleep 5
+          done
+
+          echo "❌ Secret test-cluster-superuser not found after 2.5 minutes"
+          exit 1
+  restartPolicy: Never
+{{- end }}

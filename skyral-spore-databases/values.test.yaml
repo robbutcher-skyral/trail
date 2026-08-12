@@ -1,0 +1,20 @@
+cloudnative-pg:
+  monitoring:
+    podMonitorEnabled: false
+    grafanaDashboard:
+      create: false
+
+volumeSnapshotClass:
+  enabled: false # no CRD in kind clusters
+
+scheduledAutoscaling:
+  enabled: false
+
+testing: # creates a test Postgres cluster when helm test is run
+  enabled: true
+
+installPlugin: # installs Barman Cloud Plugin for backup testing
+  enabled: false
+
+istioExtras:
+  enabled: false

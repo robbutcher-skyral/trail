@@ -1,0 +1,89 @@
+{{- if .Values.scheduledAutoscaling.enabled }}
+
+{{- range .Values.scheduledAutoscaling.databases }}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .name }}-scheduler-on
+  namespace: {{ .namespace }}
+spec:
+  schedule: {{ .onSchedule }}
+  timeZone: {{ $.Values.timeZone }}
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: {{ .name }}-scheduler
+          {{- with $.Values.scheduledAutoscaling.imagePullSecrets }}
+          imagePullSecrets:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          containers:
+          - name: postgres-scaler
+            image: {{ $.Values.scheduledAutoscaling.image.repository }}:{{ $.Values.scheduledAutoscaling.image.tag | default $.Chart.Version }}
+            args: [ 'on', '{{ .name }}', '{{ .namespace }}' ]
+            resources: {}
+          restartPolicy: OnFailure
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .name }}-scheduler-off
+  namespace: {{ .namespace }}
+spec:
+  schedule: {{ .offSchedule }}
+  timeZone: {{ $.Values.timeZone }}
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: {{ .name }}-scheduler
+          {{- with $.Values.scheduledAutoscaling.imagePullSecrets }}
+          imagePullSecrets:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          containers:
+          - name: postgres-scaler
+            image: {{ $.Values.scheduledAutoscaling.image.repository }}:{{ $.Values.scheduledAutoscaling.image.tag | default $.Chart.Version }}
+            args: [ 'off', '{{ .name }}', '{{ .namespace }}' ]
+            resources: {}
+          restartPolicy: OnFailure
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ .name }}-scheduler
+  namespace: {{ .namespace }}
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ .name }}-scheduler
+subjects:
+  - kind: ServiceAccount
+    name: {{ .name }}-scheduler
+    namespace: {{ .namespace }}
+roleRef:
+  kind: ClusterRole
+  name: {{ $.Release.Name }}-scheduler
+  apiGroup: ""
+---
+{{- end }}
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ .Release.Name }}-scheduler
+rules:
+  - apiGroups: ["postgresql.cnpg.io"]
+    resources:
+      - "clusters"
+    verbs:
+      - "get"
+      - "patch"
+{{- end }}
