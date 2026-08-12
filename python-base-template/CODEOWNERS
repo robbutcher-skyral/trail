@@ -1,0 +1,16 @@
+# Code owners are automatically requested for review when someone opens a pull request that modifies code that they own.
+#
+# You should specify Github teams wherever possible e.g. @skyral-group/production-engineering. Note that the org must be the same org as where the repository resides.
+# You can find our specified teams here: https://github.com/skyral-group/ee-repo-permissions/tree/main/teams
+# If you need to specify individuals, prefer their Skyral email address over their Github handle so it is easier to identify the individual.
+#
+# Syntax: <pattern> <space-delimited-team-or-email>
+#
+# Examples:
+#     * @skyral-group/production-engineering         # matches whole repository
+#     docs/ lucy.bloggs@skyral.io                    # matches just changes to the docs directory
+#     *                                              # matches whole repository, but sets no code owners
+# If in doubt just specify a single line with using the `*` pattern, as per the first example
+#
+# For further details see: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+*

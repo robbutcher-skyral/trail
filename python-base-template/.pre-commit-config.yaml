@@ -1,0 +1,45 @@
+# Don't forget to also update the setup.sh script to include new hook types, if applicable.
+# File Format: https://pre-commit.com/#pre-commit-configyaml---hooks
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+        # Any file pattern can be excluded from this hook by adding the following line:
+        # exclude: "^examples/full-stack-demo/ui/.yarn/release"
+      - id: check-added-large-files
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: detect-private-key
+      - id: mixed-line-ending
+      - id: requirements-txt-fixer
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: check-json
+      - id: check-toml
+      - id: check-xml
+      - id: check-yaml
+        args: ["--allow-multiple-documents"]
+        exclude: "^(mkdocs.yaml|deploy/)"
+      - id: check-yaml
+        args: ["--allow-multiple-documents", "--unsafe"]
+        files: "mkdocs.yaml" # linted separately due to use of unsupported Python Tags
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.47.0
+    hooks:
+      - id: markdownlint
+  - repo: https://github.com/tcort/markdown-link-check
+    rev: v3.14.2
+    hooks:
+      - id: markdown-link-check
+        args:
+        - --quiet
+        - --config
+        - .markdown-link-check.json
+        language: node
+        types: [markdown]
+        stages: [pre-commit, pre-push, manual]
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.13.5
+    hooks:
+      - id: commitizen

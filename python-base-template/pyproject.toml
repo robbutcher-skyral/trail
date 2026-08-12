@@ -1,0 +1,28 @@
+[project]
+name = "base-template"
+version = "1.0.0"
+description = "A Github Template upon which other Github templates can be based, or repositories if there is no more suitable template"
+readme = "README.md"
+requires-python = ">=3.12, <3.15"
+dependencies = [
+    "mkdocs-awesome-pages-plugin>=2.10.1",
+    "universal-pathlib",
+    "boto3"
+]
+
+[dependency-groups]
+docs = [
+    "mkdocs>=1.6.1",
+    "mkdocs-material>=9.6.19",
+    "mkdocs-material-adr>=1.2.1",
+    "mkdocs-techdocs-core==1.7.0",
+    "mkdocs-mermaid2-plugin>=1.2.3",
+]
+
+[tool.uv]
+keyring-provider = "subprocess"
+
+[[tool.uv.index]]
+name = "skyral-python"
+url = "https://oauth2accesstoken@europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple"
+default = true

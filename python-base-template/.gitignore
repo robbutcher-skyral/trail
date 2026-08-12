@@ -1,0 +1,23 @@
+# Mac OS X files
+.DS_Store
+
+# IDEs
+.vscode
+.idea
+more
+less
+
+# mkdocs
+site/
+
+# Github Actions Credential files
+**/gha-creds*
+
+# Python
+.venv/
+.direnv/
+
+# Claude Code — commit project skills, commands, and shared settings.
+# Only personal overrides and ephemeral worktrees are ignored.
+.claude/settings.local.json
+.claude/worktrees/

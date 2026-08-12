@@ -1,0 +1,21 @@
+site_name: "mkdocs site"
+
+theme:
+  name: material
+  logo: "images/skyral-icon.png"
+
+plugins:
+  - search # Built into mkdocs-material
+  - mkdocs-material-adr/adr
+  - techdocs-core
+  - awesome-pages
+
+markdown_extensions:
+  - admonition
+  # Mermaid Diagram Support
+  - pymdownx.extra:
+      pymdownx.superfences:
+        custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_code_format
