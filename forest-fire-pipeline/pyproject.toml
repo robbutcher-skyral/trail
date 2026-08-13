@@ -33,13 +33,13 @@ default = true
 
 # Dagster Configuration
 [tool.dagster]
-module_name = "forest_fire_pipeline"
+module_name = "pipeline"
 
 [tool.dg]
 directory_type = "project"
 
 [tool.dg.project]
-root_module = "forest-fire-pipeline"
+root_module = "pipeline"
 
 # [tool.ruff.lint]
 # select = ["E", "F", "I"]
