@@ -1,3 +1,5 @@
+import os
+
 from dagster import Definitions, load_assets_from_package_module
 
 from skyral.record_store_utils.dagster import RecordStoreResource
@@ -5,7 +7,8 @@ from skyral.record_store_utils.dagster import RecordStoreResource
 from pipeline import defs as d
 
 
-record_store = RecordStoreResource(url="record_store")
+# record_store = RecordStoreResource(url=os.environ["RECORD_STORE_URL"]) //TODO: bug with // in url, outside of control
+record_store = RecordStoreResource(url='internal')
 
 defs = Definitions(
     assets=load_assets_from_package_module(d),

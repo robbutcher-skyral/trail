@@ -1,0 +1,34 @@
+dagster:
+  # Configure how pipeline workloads are launched
+  runLauncher:
+    config:
+      k8sRunLauncher:
+        # Expose SPORE Storage connection info as environment variables
+        envSecrets:
+          - name: skyral-spore-storage-connection-secret
+        # Force pipeline workloads to be run on particular nodes
+        # runK8sConfig:
+        #   podSpecConfig:
+        #     nodeSelector:
+        #       type: pipeline-compute
+        #     tolerations:
+        #       - key: pipeline-compute
+        #         operator: Exists
+        #         effect: NoSchedule
+  # Configure your pipeline deployments
+  dagster-user-deployments:
+    deployments:
+      - name: "forest-fire-pipeline"
+        image:
+          repository: "docker.io/library/forest-fire-pipeline"
+          tag: "latest"
+          pullPolicy: "IfNotPresent"
+        dagsterApiGrpcArgs:
+          - "--package-name"
+          - "pipeline"
+        envSecrets:
+          - name: skyral-spore-storage-connection-secret
+        env:
+          - name: RECORD_STORE_URL
+            value: 'http://skyral-record-store-service'
+        port: 3030

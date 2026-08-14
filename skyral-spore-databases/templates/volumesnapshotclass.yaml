@@ -1,8 +1,0 @@
-{{- if .Values.volumeSnapshotClass.enabled }}
-apiVersion: snapshot.storage.k8s.io/v1
-kind: VolumeSnapshotClass
-metadata:
-  name: {{ .Release.Name }}-postgres-backup
-driver: {{ .Values.volumeSnapshotClass.driver }}
-deletionPolicy: {{ .Values.volumeSnapshotClass.deletionPolicy }}
-{{- end }}

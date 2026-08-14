@@ -4,8 +4,10 @@ from upath import UPath
 from skyral.record_store_utils.dagster import RecordStoreResource, with_metadata_records
 
 class TreeCoverageConfig(dg.Config):
-    src_url: str = (Path(__file__).resolve().parent.parent / "treecover2010_60N_010W.tif").as_uri()
-    destination_url: str = (Path(__file__).resolve().parent.parent / "treecover2010_60N_010W_new.tif").as_uri()
+    # src_url: str = (Path(__file__).resolve().parent.parent / "treecover2010_60N_010W.tif").as_uri()
+    src_url: str = "https://glad.umd.edu/Potapov/TCC_2010/treecover2010_60N_010W.tif"
+    # destination_url: str = (Path(__file__).resolve().parent.parent / "treecover2010_60N_010W_new.tif").as_uri()
+    destination_url: str = "s3://skyral-foundations/forest-fire/tree-coverage.tif"
 
 @dg.asset
 @with_metadata_records(
@@ -15,7 +17,7 @@ class TreeCoverageConfig(dg.Config):
     }
 )
 def tree_coverage_loader(
-    context: dg.AssetExecutionContext,
+    _: dg.AssetExecutionContext,
     config: TreeCoverageConfig,
     record_store: RecordStoreResource
 ) -> str:
