@@ -22,15 +22,14 @@ def tree_coverage_loader(
     record_store: RecordStoreResource
 ) -> str:
     
-    tif_upath = UPath(config.src_url)
-
-    if not tif_upath.exists():
-        raise FileNotFoundError(f"Tree coverage TIFF not found: {tif_upath}")
-
     src = UPath(config.src_url)
-    dst = UPath(config.destination_url)
 
+    if not src.exists():
+        raise FileNotFoundError(f"Tree coverage TIFF not found: {src}")
+
+    dst = UPath(config.destination_url)
     dst.parent.mkdir(parents=True, exist_ok=True)
+
     with src.open("rb") as fsrc, dst.open("wb") as fdst:
         fdst.write(fsrc.read())
 

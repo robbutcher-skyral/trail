@@ -1,6 +1,9 @@
 temp/
 tmp*/
+.tmp*
+internal
 __pycache__/
 *.tif
 *.egg-info
 record_store
+tiles
