@@ -6,7 +6,11 @@ version = "0.1.0"
 description = "Forest Fire Model"
 requires-python = ">=3.12,<3.14"
 dependencies = [
-    "universal-pathlib"
+    "matplotlib",
+    "numpy",
+    "pillow",
+    "rasterio",
+    "universal-pathlib",
 ]
 
 # Dev Dependencies

@@ -3,6 +3,18 @@ revision = 3
 requires-python = ">=3.12, <3.14"
 
 [[package]]
+name = "affine"
+version = "3.0.0"
+source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
+dependencies = [
+    { name = "attrs" },
+]
+sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/affine/affine-3.0.0.tar.gz", hash = "sha256:573514d5c37e98401a0ec34139c2b725d9f9ae4d074662f4b62a47d6a2ba9f06" }
+wheels = [
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/affine/affine-3.0.0-py3-none-any.whl", hash = "sha256:d1b15ed1877a4649a623468a97af6b2182889dc748d7f96d59d504e5c83c00bf" },
+]
+
+[[package]]
 name = "ast-serialize"
 version = "0.8.0"
 source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
@@ -47,10 +59,131 @@ wheels = [
 ]
 
 [[package]]
+name = "attrs"
+version = "26.1.0"
+source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
+sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/attrs/attrs-26.1.0.tar.gz", hash = "sha256:d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32" }
+wheels = [
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/attrs/attrs-26.1.0-py3-none-any.whl", hash = "sha256:c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309" },
+]
+
+[[package]]
+name = "certifi"
+version = "2026.7.22"
+source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
+sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/certifi/certifi-2026.7.22.tar.gz", hash = "sha256:741e2c3b351ddf169a738da9f2c048608ff7f2c5cc02f1ebc6b118bb090d5d55" }
+wheels = [
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/certifi/certifi-2026.7.22-py3-none-any.whl", hash = "sha256:62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775" },
+]
+
+[[package]]
+name = "click"
+version = "8.4.2"
+source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
+dependencies = [
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+]
+sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/click/click-8.4.2.tar.gz", hash = "sha256:9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6" }
+wheels = [
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/click/click-8.4.2-py3-none-any.whl", hash = "sha256:e6f9f66136c816745b9d65817da91d61d957fb16e02e4dcd0552553c5a197b76" },
+]
+
+[[package]]
+name = "colorama"
+version = "0.4.6"
+source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
+sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/colorama/colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44" }
+wheels = [
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/colorama/colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6" },
+]
+
+[[package]]
+name = "contourpy"
+version = "1.3.3"
+source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
+dependencies = [
+    { name = "numpy" },
+]
+sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3.tar.gz", hash = "sha256:083e12155b210502d0bca491432bb04d56dc3432f95a979b429f2848c3dbe880" }
+wheels = [
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:b08a32ea2f8e42cf1d4be3169a98dd4be32bafe4f22b6c4cb4ba810fa9e5d2cb" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:556dba8fb6f5d8742f2923fe9457dbdd51e1049c4a43fd3986a0b14a1d815fc6" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp312-cp312-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:92d9abc807cf7d0e047b95ca5d957cf4792fcd04e920ca70d48add15c1a90ea7" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp312-cp312-manylinux_2_26_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:b2e8faa0ed68cb29af51edd8e24798bb661eac3bd9f65420c1887b6ca89987c8" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp312-cp312-manylinux_2_26_s390x.manylinux_2_28_s390x.whl", hash = "sha256:626d60935cf668e70a5ce6ff184fd713e9683fb458898e4249b63be9e28286ea" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:4d00e655fcef08aba35ec9610536bfe90267d7ab5ba944f7032549c55a146da1" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:451e71b5a7d597379ef572de31eeb909a87246974d960049a9848c3bc6c41bf7" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:459c1f020cd59fcfe6650180678a9993932d80d44ccde1fa1868977438f0b411" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp312-cp312-win32.whl", hash = "sha256:023b44101dfe49d7d53932be418477dba359649246075c996866106da069af69" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp312-cp312-win_amd64.whl", hash = "sha256:8153b8bfc11e1e4d75bcb0bff1db232f9e10b274e0929de9d608027e0d34ff8b" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp312-cp312-win_arm64.whl", hash = "sha256:07ce5ed73ecdc4a03ffe3e1b3e3c1166db35ae7584be76f65dbbe28a7791b0cc" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:177fb367556747a686509d6fef71d221a4b198a3905fe824430e5ea0fda54eb5" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:d002b6f00d73d69333dac9d0b8d5e84d9724ff9ef044fd63c5986e62b7c9e1b1" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:348ac1f5d4f1d66d3322420f01d42e43122f43616e0f194fc1c9f5d830c5b286" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313-manylinux_2_26_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:655456777ff65c2c548b7c454af9c6f33f16c8884f11083244b5819cc214f1b5" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313-manylinux_2_26_s390x.manylinux_2_28_s390x.whl", hash = "sha256:644a6853d15b2512d67881586bd03f462c7ab755db95f16f14d7e238f2852c67" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:4debd64f124ca62069f313a9cb86656ff087786016d76927ae2cf37846b006c9" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:a15459b0f4615b00bbd1e91f1b9e19b7e63aea7483d03d804186f278c0af2659" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:ca0fdcd73925568ca027e0b17ab07aad764be4706d0a925b89227e447d9737b7" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313-win32.whl", hash = "sha256:b20c7c9a3bf701366556e1b1984ed2d0cedf999903c51311417cf5f591d8c78d" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313-win_amd64.whl", hash = "sha256:1cadd8b8969f060ba45ed7c1b714fe69185812ab43bd6b86a9123fe8f99c3263" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313-win_arm64.whl", hash = "sha256:fd914713266421b7536de2bfa8181aa8c699432b6763a0ea64195ebe28bff6a9" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313t-macosx_10_13_x86_64.whl", hash = "sha256:88df9880d507169449d434c293467418b9f6cbe82edd19284aa0409e7fdb933d" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313t-macosx_11_0_arm64.whl", hash = "sha256:d06bb1f751ba5d417047db62bca3c8fde202b8c11fb50742ab3ab962c81e8216" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313t-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:e4e6b05a45525357e382909a4c1600444e2a45b4795163d3b22669285591c1ae" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313t-manylinux_2_26_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:ab3074b48c4e2cf1a960e6bbeb7f04566bf36b1861d5c9d4d8ac04b82e38ba20" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313t-manylinux_2_26_s390x.manylinux_2_28_s390x.whl", hash = "sha256:6c3d53c796f8647d6deb1abe867daeb66dcc8a97e8455efa729516b997b8ed99" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313t-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:50ed930df7289ff2a8d7afeb9603f8289e5704755c7e5c3bbd929c90c817164b" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313t-musllinux_1_2_aarch64.whl", hash = "sha256:4feffb6537d64b84877da813a5c30f1422ea5739566abf0bd18065ac040e120a" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313t-musllinux_1_2_x86_64.whl", hash = "sha256:2b7e9480ffe2b0cd2e787e4df64270e3a0440d9db8dc823312e2c940c167df7e" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313t-win32.whl", hash = "sha256:283edd842a01e3dcd435b1c5116798d661378d83d36d337b8dde1d16a5fc9ba3" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313t-win_amd64.whl", hash = "sha256:87acf5963fc2b34825e5b6b048f40e3635dd547f590b04d2ab317c2619ef7ae8" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/contourpy/contourpy-1.3.3-cp313-cp313t-win_arm64.whl", hash = "sha256:3c30273eb2a55024ff31ba7d052dde990d7d8e5450f4bbb6e913558b3d6c2301" },
+]
+
+[[package]]
+name = "cycler"
+version = "0.12.1"
+source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
+sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/cycler/cycler-0.12.1.tar.gz", hash = "sha256:88bb128f02ba341da8ef447245a9e138fae777f6a23943da4540077d3601eb1c" }
+wheels = [
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/cycler/cycler-0.12.1-py3-none-any.whl", hash = "sha256:85cef7cff222d8644161529808465972e51340599459b8ac3ccbac5a854e0d30" },
+]
+
+[[package]]
+name = "fonttools"
+version = "4.63.0"
+source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
+sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0.tar.gz", hash = "sha256:caeb583deeb5168e694b65cda8b4ee62abedfa66cf88488734466f2366b9c4e0" }
+wheels = [
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0-cp312-cp312-macosx_10_13_universal2.whl", hash = "sha256:37dd23e621e3b0aef1baa70a303b80aaf38449632cfc8fd2a55fb285bbccfc02" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:a9faff9e0c1f76f9fd55899d2ce785832efebab37eb8ae13995853aef178bef0" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:ef3048ef05dbb552b89817713d9cac912e00d0fde4a3105c00d29e52e10c89af" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:58dc6bb86a78d782f00f9190ca02c119cf5bbe2807536e361e18d42019f877d8" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:ee08ebfa58f6e1aeff5697ab9582105bb620008c1caafb681e4c557e7483027b" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:27fdc65af8da6f88b9c6121c47a464cbe359fcfff7ff6fc2d37a1f395d755b78" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0-cp312-cp312-win32.whl", hash = "sha256:af2fd1664d00a397d75f806985ddb36282091c2131a73a6485c23b4a34722263" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0-cp312-cp312-win_amd64.whl", hash = "sha256:59ac449f8cca9b4ffa08d2e7bbadad87ce710d69d1eda5c3c1ce579baa987272" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0-cp313-cp313-macosx_10_13_universal2.whl", hash = "sha256:cd7e9857e5e63738b9d9fd707bc1f59c8b09e5177726d23664db393c59bb08bd" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:c2a2a42198b696a6f48fad91709afb55176e66a5e566131219dba372fb7f8c59" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:1e874792a8212b44583ea02189d9e693906b2f78b261f372f95d6c563210ac1d" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:22135da48a348785c5e2d5d2d9d6bec5ed44adacbaeb9db12d9493bf6c6bfa68" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:ccf41f2efdf56994d22d73bef4ced1052161958169428d06ba9724ea9e9a64be" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:9ced0bd02ac751dd6319b0da88aaef24414e3b0dbc32bb4f24944821a3741a27" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0-cp313-cp313-win32.whl", hash = "sha256:85be818f5506e8a7753153def2c9550178f0ecae6a47b5e0e8dbb23f7cc90380" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0-cp313-cp313-win_amd64.whl", hash = "sha256:ba04cb5891d4c0c21b6da95eda8d7b090021508a294fff33464fc7d241e0856b" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fonttools/fonttools-4.63.0-py3-none-any.whl", hash = "sha256:445af2eab030a16b9171ea8bdda7ebf7d96bda2df88ee182a464252f6e05e20d" },
+]
+
+[[package]]
 name = "forest-fire-model"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "matplotlib" },
+    { name = "numpy" },
+    { name = "pillow" },
+    { name = "rasterio" },
     { name = "universal-pathlib" },
 ]
 
@@ -61,7 +194,11 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "matplotlib" },
     { name = "mypy", marker = "extra == 'dev'" },
+    { name = "numpy" },
+    { name = "pillow" },
+    { name = "rasterio" },
     { name = "universal-pathlib" },
 ]
 provides-extras = ["dev"]
@@ -73,6 +210,62 @@ source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral
 sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fsspec/fsspec-2026.7.0.tar.gz", hash = "sha256:c803c40f4cf860b49dea58ee3e1c33cb9c790520e233537e1340049f89b82a88" }
 wheels = [
     { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/fsspec/fsspec-2026.7.0-py3-none-any.whl", hash = "sha256:b57ddbafedfaef7018c1ecab32aa200a9d7ca26b77965f64e48b70061249d279" },
+]
+
+[[package]]
+name = "kiwisolver"
+version = "1.5.0"
+source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
+sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0.tar.gz", hash = "sha256:d4193f3d9dc3f6f79aaed0e5637f45d98850ebf01f7ca20e69457f3e8946b66a" }
+wheels = [
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp312-cp312-macosx_10_13_universal2.whl", hash = "sha256:4e9750bc21b886308024f8a54ccb9a2cc38ac9fa813bf4348434e3d54f337ff9" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:72ec46b7eba5b395e0a7b63025490d3214c11013f4aacb4f5e8d6c3041829588" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:ed3a984b31da7481b103f68776f7128a89ef26ed40f4dc41a2223cda7fb24819" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:bb5136fb5352d3f422df33f0c879a1b0c204004324150cc3b5e3c4f310c9049f" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:b2af221f268f5af85e776a73d62b0845fc8baf8ef0abfae79d29c77d0e776aaf" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp312-cp312-manylinux_2_24_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:b0f172dc8ffaccb8522d7c5d899de00133f2f1ca7b0a49b7da98e901de87bf2d" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp312-cp312-manylinux_2_24_s390x.manylinux_2_28_s390x.whl", hash = "sha256:6ab8ba9152203feec73758dad83af9a0bbe05001eb4639e547207c40cfb52083" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp312-cp312-manylinux_2_39_riscv64.whl", hash = "sha256:cdee07c4d7f6d72008d3f73b9bf027f4e11550224c7c50d8df1ae4a37c1402a6" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:7c60d3c9b06fb23bd9c6139281ccbdc384297579ae037f08ae90c69f6845c0b1" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp312-cp312-musllinux_1_2_ppc64le.whl", hash = "sha256:e315e5ec90d88e140f57696ff85b484ff68bb311e36f2c414aa4286293e6dee0" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp312-cp312-musllinux_1_2_riscv64.whl", hash = "sha256:1465387ac63576c3e125e5337a6892b9e99e0627d52317f3ca79e6930d889d15" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp312-cp312-musllinux_1_2_s390x.whl", hash = "sha256:530a3fd64c87cffa844d4b6b9768774763d9caa299e9b75d8eca6a4423b31314" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:1d9daea4ea6b9be74fe2f01f7fbade8d6ffab263e781274cffca0dba9be9eec9" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp312-cp312-win_amd64.whl", hash = "sha256:f18c2d9782259a6dc132fdc7a63c168cbc74b35284b6d75c673958982a378384" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp312-cp312-win_arm64.whl", hash = "sha256:f7c7553b13f69c1b29a5bde08ddc6d9d0c8bfb84f9ed01c30db25944aeb852a7" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313-macosx_10_13_universal2.whl", hash = "sha256:fd40bb9cd0891c4c3cb1ddf83f8bbfa15731a248fdc8162669405451e2724b09" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:c0e1403fd7c26d77c1f03e096dc58a5c726503fa0db0456678b8668f76f521e3" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:dda366d548e89a90d88a86c692377d18d8bd64b39c1fb2b92cb31370e2896bbd" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:332b4f0145c30b5f5ad9374881133e5aa64320428a57c2c2b61e9d891a51c2f3" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:0c50b89ffd3e1a911c69a1dd3de7173c0cd10b130f56222e57898683841e4f96" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313-manylinux_2_24_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:4db576bb8c3ef9365f8b40fe0f671644de6736ae2c27a2c62d7d8a1b4329f099" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313-manylinux_2_24_s390x.manylinux_2_28_s390x.whl", hash = "sha256:0b85aad90cea8ac6797a53b5d5f2e967334fa4d1149f031c4537569972596cb8" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313-manylinux_2_39_riscv64.whl", hash = "sha256:d36ca54cb4c6c4686f7cbb7b817f66f5911c12ddb519450bbe86707155028f87" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:38f4a703656f493b0ad185211ccfca7f0386120f022066b018eb5296d8613e23" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313-musllinux_1_2_ppc64le.whl", hash = "sha256:3ac2360e93cb41be81121755c6462cff3beaa9967188c866e5fce5cf13170859" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313-musllinux_1_2_riscv64.whl", hash = "sha256:c95cab08d1965db3d84a121f1c7ce7479bdd4072c9b3dafd8fecce48a2e6b902" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313-musllinux_1_2_s390x.whl", hash = "sha256:fc20894c3d21194d8041a28b65622d5b86db786da6e3cfe73f0c762951a61167" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:7a32f72973f0f950c1920475d5c5ea3d971b81b6f0ec53b8d0a956cc965f22e0" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313-win_amd64.whl", hash = "sha256:0bf3acf1419fa93064a4c2189ac0b58e3be7872bf6ee6177b0d4c63dc4cea276" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313-win_arm64.whl", hash = "sha256:fa8eb9ecdb7efb0b226acec134e0d709e87a909fa4971a54c0c4f6e88635484c" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313t-macosx_10_13_universal2.whl", hash = "sha256:db485b3847d182b908b483b2ed133c66d88d49cacf98fd278fadafe11b4478d1" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313t-macosx_10_13_x86_64.whl", hash = "sha256:be12f931839a3bdfe28b584db0e640a65a8bcbc24560ae3fdb025a449b3d754e" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313t-macosx_11_0_arm64.whl", hash = "sha256:16b85d37c2cbb3253226d26e64663f755d88a03439a9c47df6246b35defbdfb7" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313t-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:4432b835675f0ea7414aab3d37d119f7226d24869b7a829caeab49ebda407b0c" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313t-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:1b0feb50971481a2cc44d94e88bdb02cdd497618252ae226b8eb1201b957e368" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313t-manylinux_2_24_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:56fa888f10d0f367155e76ce849fa1166fc9730d13bd2d65a2aa13b6f5424489" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313t-manylinux_2_24_s390x.manylinux_2_28_s390x.whl", hash = "sha256:940dda65d5e764406b9fb92761cbf462e4e63f712ab60ed98f70552e496f3bf1" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313t-manylinux_2_39_riscv64.whl", hash = "sha256:89fc958c702ee9a745e4700378f5d23fddbc46ff89e8fdbf5395c24d5c1452a3" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313t-musllinux_1_2_aarch64.whl", hash = "sha256:9027d773c4ff81487181a925945743413f6069634d0b122d0b37684ccf4f1e18" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313t-musllinux_1_2_ppc64le.whl", hash = "sha256:5b233ea3e165e43e35dba1d2b8ecc21cf070b45b65ae17dd2747d2713d942021" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313t-musllinux_1_2_riscv64.whl", hash = "sha256:ce9bf03dad3b46408c08649c6fbd6ca28a9fce0eb32fdfffa6775a13103b5310" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313t-musllinux_1_2_s390x.whl", hash = "sha256:fc4d3f1fb9ca0ae9f97b095963bc6326f1dbfd3779d6679a1e016b9baaa153d3" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313t-musllinux_1_2_x86_64.whl", hash = "sha256:f443b4825c50a51ee68585522ab4a1d1257fac65896f282b4c6763337ac9f5d2" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-cp313-cp313t-win_arm64.whl", hash = "sha256:893ff3a711d1b515ba9da14ee090519bad4610ed1962fbe298a434e8c5f8db53" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-graalpy312-graalpy250_312_native-macosx_10_13_x86_64.whl", hash = "sha256:5ae8e62c147495b01a0f4765c878e9bfdf843412446a247e28df59936e99e797" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-graalpy312-graalpy250_312_native-macosx_11_0_arm64.whl", hash = "sha256:f6764a4ccab3078db14a632420930f6186058750df066b8ea2a7106df91d3203" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-graalpy312-graalpy250_312_native-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:c31c13da98624f957b0fb1b5bae5383b2333c2c3f6793d9825dd5ce79b525cb7" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/kiwisolver/kiwisolver-1.5.0-graalpy312-graalpy250_312_native-win_amd64.whl", hash = "sha256:1f1489f769582498610e015a8ef2d36f28f505ab3096d0e16b4858a9ec214f57" },
 ]
 
 [[package]]
@@ -115,6 +308,46 @@ wheels = [
 ]
 
 [[package]]
+name = "matplotlib"
+version = "3.11.1"
+source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
+dependencies = [
+    { name = "contourpy" },
+    { name = "cycler" },
+    { name = "fonttools" },
+    { name = "kiwisolver" },
+    { name = "numpy" },
+    { name = "packaging" },
+    { name = "pillow" },
+    { name = "pyparsing" },
+    { name = "python-dateutil" },
+]
+sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1.tar.gz", hash = "sha256:69647db5746941c793d6e445a4cd349323ffb87d9cc958c2ad84a659b4832d30" }
+wheels = [
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:e15ef41507f3d525f46154ac9e3ae785dacde9f20e593a25de8986267892ef74" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:21a67b961a6d597bca54fae826cd20695ba4a6e4d05424a08da6e13e3176fd6b" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:ba8f811b8ddfac493734d6af0b2dff96919d0c28ca0d641858dab4262777c6ea" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp312-cp312-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:c52f7ad20ef476806ed212380b1d54d20310c8b86bdc2c9a68b51f0024a44472" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:8b14eb22961fe865efb0e4ff167e333e428908b00115a8d800ccb65ee108e481" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp312-cp312-win_amd64.whl", hash = "sha256:88a2a27dd9691ae448dfae4b26f59036be90c3c28757edd3553a29559d00859f" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp312-cp312-win_arm64.whl", hash = "sha256:480194afceca4df2f137c2721227d3cba67121fbf4397b69cee7f83714b0a58a" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:6771b0cd7838c6a857a7209814158c0ad09bfef878db3033dd82d70ad101f191" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:2abdee5ffa2fe11b2d19f7a5c63b785fb7c28cc46c7bc1814156341d9d1a33e1" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:b0a19dcf73406d3746d25a5ed42d713604c9a3e024d129b102852b0d941cb9f3" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp313-cp313-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:7389b77ed2ab0552f46d9a90b81b7b8e6dfcdc42adc36c37a0865799843e0e3e" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:c90be0b73568da4f662afac580956a76e308437e641b4a45aa08925eeb67d95f" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp313-cp313-win_amd64.whl", hash = "sha256:68408341f2312836fbbdf6b3c78047f65b2d8752f5fd221c3e72d348f5b34f8b" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp313-cp313-win_arm64.whl", hash = "sha256:0c1f44890d435c1b4ef52f701ad5828cb450ea97bcc83918fda6be74965d6cd2" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp313-cp313t-macosx_10_13_x86_64.whl", hash = "sha256:5e510088c27a89d53580a752f959146893563e63c330e161d159b0fee652af6f" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp313-cp313t-macosx_11_0_arm64.whl", hash = "sha256:1524e2bdd48a93557aa47ddcfe9c225dfdd57d5a01a5c49128c20f0632980ee1" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp313-cp313t-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:11664c551345553db92e61cae6cf1376f138f8c47cafdf13b64b18f3e3e9e464" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp313-cp313t-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:5e1f8922ba31959cf6a9dfb51be64b7f7bc582801a3957dc0c2f3afcd3537adf" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp313-cp313t-musllinux_1_2_x86_64.whl", hash = "sha256:83235693abde86e5e0129998f80ee39fc7f58e6d56a88fafb28a9278833e9d5f" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp313-cp313t-win_amd64.whl", hash = "sha256:9a076f4fc5cdc43fdf510f5981418d25c2db4973418d9f22d8bb3dc8045ada78" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/matplotlib/matplotlib-3.11.1-cp313-cp313t-win_arm64.whl", hash = "sha256:216fbb93a74add02ddb4cb38ef5348f59ac00b3e84567eaf16598772d40e150a" },
+]
+
+[[package]]
 name = "mypy"
 version = "2.3.1"
 source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
@@ -152,6 +385,45 @@ wheels = [
 ]
 
 [[package]]
+name = "numpy"
+version = "2.5.2"
+source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
+sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2.tar.gz", hash = "sha256:d482d171c406ae88c5b19cad3b6a1c4c5209f886ab74bc44c2c865c23f52d860" }
+wheels = [
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:14e373cfc6387177e8409dac3c7159be8eb05cd77096cd7c950268b86f62831c" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:4bbd96c833ecc8cc069ce518078fc8c60cb9cbfb0fea5b7a803ad65035596d03" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp312-cp312-macosx_14_0_arm64.whl", hash = "sha256:6e8172ddfcf5cf74b811d372b570b83c60bd2de87a6fbfbebdadb4a9bd9c6cbb" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp312-cp312-macosx_14_0_x86_64.whl", hash = "sha256:65f188481f1669e26f62b701e8205d19e460fa4a9b52a1414ba382330e4a3414" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:8ee9c4eeb8454b3660a8b53493563c3e121c2fc94fbd72b848ef814ed7b676a9" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:3cdec01fa790a186d430433fdd4d4ffb70eed6f0eeb4bf05c8dbe2dce0a9bcb8" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:7999d4ddb0c4025018373fd787510d46e04c769467af22869707b3c1cfd459ab" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:c1f017dc0875c9209d219f97feceb7d54c2661bb243deb4114478e1295808af7" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp312-cp312-win32.whl", hash = "sha256:d6a48072864e3324e194a8fbb3c657bcc5b5c869dbc64c9537b1d5c862572c0a" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp312-cp312-win_amd64.whl", hash = "sha256:28ac63476ec7651484215ee7fa15a1f78b57c14621f01e392afe17b9a1390ce4" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp312-cp312-win_arm64.whl", hash = "sha256:27650bb0e7140fa3d37b9923b4803645e0b125d190f326eecfd3f4dad8e8ade1" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:8e4cb9a754c8a0c62eaa88273a5fba3391f4a610d1dee893c0755da31c083f15" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:52c808f96484f5571a5cc863775ce50247c17dfb3b0361f8ed6b4b0456f80080" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp313-cp313-macosx_14_0_arm64.whl", hash = "sha256:29d81e97f668489cba8ebfd796b9bdd453525d35dd9e162e2daec94bf3fc7740" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp313-cp313-macosx_14_0_x86_64.whl", hash = "sha256:afb3f0632d6b2e3ba04dbce8d1e48d321b369138b73830b5ca371a0e8d479d56" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:0aadf13b60048d501e05fa699efaf7734e2494f3498a4c2a5521d822640324f3" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:29b86ff8a6cc556b47ec6b64b194815cc80e6bf5eedcc6cddfd65318cb0b4eee" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:6950c4b7dd562453090548ba7f5da7e59f57f85663f15d5dcc60e249192f7e59" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:b9727f472d2f3888053b8a75ab0cb94745a9de224bb5846dbadc0092101bc71d" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp313-cp313-win32.whl", hash = "sha256:4f9744f9fbdcea0bc552e8f19e1f141f811a3f9bc2be2cc6e86d982cab23e3f4" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp313-cp313-win_amd64.whl", hash = "sha256:85aaccb24182c25df891ad0ec333585967e115269d5f1b17f2c9ae005bc96657" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/numpy/numpy-2.5.2-cp313-cp313-win_arm64.whl", hash = "sha256:bd68ece1553d2023c09a4226d9e41c586ad2d20594d1a456186c33513d2cb3f2" },
+]
+
+[[package]]
+name = "packaging"
+version = "26.3"
+source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
+sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/packaging/packaging-26.3.tar.gz", hash = "sha256:94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79" }
+wheels = [
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/packaging/packaging-26.3-py3-none-any.whl", hash = "sha256:d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c" },
+]
+
+[[package]]
 name = "pathlib-abc"
 version = "0.5.2"
 source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
@@ -167,6 +439,93 @@ source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral
 sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pathspec/pathspec-1.1.1.tar.gz", hash = "sha256:17db5ecd524104a120e173814c90367a96a98d07c45b2e10c2f3919fff91bf5a" }
 wheels = [
     { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pathspec/pathspec-1.1.1-py3-none-any.whl", hash = "sha256:a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189" },
+]
+
+[[package]]
+name = "pillow"
+version = "12.3.0"
+source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
+sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0.tar.gz", hash = "sha256:3b8182a766685eaa002637e28b4ec8d6b18819a0c71f579bf0dbaa5830297cce" }
+wheels = [
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:ba09209fbe443b4acccebe845d8a138b89a8f4fbaeedd44953490b5315d5e965" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:ffd0c5368496f41b0944be820fcb7a838aa6e623d250b01acf2643939c3f99d7" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:d9c7f76c0673154f044e9d78c8655fb4213f6ca31a836df48b40fe5d187717b9" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:78cb2c6865a35ab8ff8b75fd122f6033b92a62c82801110e48ddd6c936a45d91" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:e491916b378fba47242221bb9ead245211b70d504f495d105d17b14a24b4907c" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:0dd2064cbc55aaec028ef5fbb60fa47bb6c3e7918e07ff17935284b227a9d2df" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp312-cp312-win32.whl", hash = "sha256:dbce0b29841537a2fa4a214c2bbf14de3587c9680caa9b4e217568472490b28f" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp312-cp312-win_amd64.whl", hash = "sha256:a2b55dd6b2a4c4b7d87ffa56bdb33fdc5fdb9a462173861a7bc097f17d91cb09" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp312-cp312-win_arm64.whl", hash = "sha256:331b624368d4f1d069149002f25f44bc61c8919ce8ddb3c45bdad8f6e2d89510" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp313-cp313-ios_13_0_arm64_iphoneos.whl", hash = "sha256:21900ce7ba264168cd50defae43cd75d25c833ad4ad6e73ffc5596d12e25ac89" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp313-cp313-ios_13_0_arm64_iphonesimulator.whl", hash = "sha256:4e8c2a84d977f50b9daed6eeaf3baef67d00d5d74d932288f02cb94518ee3ace" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp313-cp313-ios_13_0_x86_64_iphonesimulator.whl", hash = "sha256:ae26d61dfa7a47befdc7572b521024e8745f3d809bd95ca9505a7bba9ef849ec" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:7a743ff716f746fc19a9557f60dab1600d4613255f8a7aeb3cdde4db7eb15a66" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:d69141514cc30b774ceea5e3ed3a6635c8d8a96edf664689b890f4089111fb35" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:f7401aebd7f581d7f83a439d87d474999317ee099218e5ad25d125290990ba65" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:0847a763afefb695bc912d7c131e7e0632d4edc1d8698f58ddabec8e46b8b6d3" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:571b9fcb07b97ef3a492028fb3d2dc0993ca23a06138b0315286566d29ef718a" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:756c768d0c9c2955feb7a56c37ea24aea2e369f8d36a88da270b6a9f19e62b5e" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp313-cp313-win32.whl", hash = "sha256:a876864214e136f0eb367788dbd7df045f4806801518e2cfe9e13229cfe06d8f" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp313-cp313-win_amd64.whl", hash = "sha256:1cca606cd25738df4ed873d5ad46bbdb3d83b5cbca291f6b4ff13a4df6b0bbe8" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pillow/pillow-12.3.0-cp313-cp313-win_arm64.whl", hash = "sha256:b629de27fda84b42cde7edef0d85f13b958b47f6e9bbcbba9b673c562a89bd8b" },
+]
+
+[[package]]
+name = "pyparsing"
+version = "3.3.2"
+source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
+sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pyparsing/pyparsing-3.3.2.tar.gz", hash = "sha256:c777f4d763f140633dcb6d8a3eda953bf7a214dc4eff598413c070bcdc117cbc" }
+wheels = [
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/pyparsing/pyparsing-3.3.2-py3-none-any.whl", hash = "sha256:850ba148bd908d7e2411587e247a1e4f0327839c40e2e5e6d05a007ecc69911d" },
+]
+
+[[package]]
+name = "python-dateutil"
+version = "2.9.0.post0"
+source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
+dependencies = [
+    { name = "six" },
+]
+sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/python-dateutil/python-dateutil-2.9.0.post0.tar.gz", hash = "sha256:37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3" }
+wheels = [
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/python-dateutil/python_dateutil-2.9.0.post0-py2.py3-none-any.whl", hash = "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427" },
+]
+
+[[package]]
+name = "rasterio"
+version = "1.5.1"
+source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
+dependencies = [
+    { name = "affine" },
+    { name = "attrs" },
+    { name = "certifi" },
+    { name = "click" },
+    { name = "numpy" },
+    { name = "pyparsing" },
+]
+sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/rasterio/rasterio-1.5.1.tar.gz", hash = "sha256:c1b6ae15f4ccad704f1fe8417da5c2250145c7bcdb91acb53833bf5aefdd9e48" }
+wheels = [
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/rasterio/rasterio-1.5.1-cp312-cp312-macosx_14_0_arm64.whl", hash = "sha256:c209e670abf0f30695a784c4f0170366462b9a3eaea3e49122ab2ce81799460b" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/rasterio/rasterio-1.5.1-cp312-cp312-macosx_15_0_x86_64.whl", hash = "sha256:833511f045ca49dafbf25da4762a0b19dcf5d046ded8b318c094363e2d65f474" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/rasterio/rasterio-1.5.1-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:821d49afd18498fb0918b72961b1b667193c64edf8cc484081c522d10b33980d" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/rasterio/rasterio-1.5.1-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:a270366c4f44f7bb4367d7068b6de08c56b2b04049e3dfcd06d451141fee3a7f" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/rasterio/rasterio-1.5.1-cp312-cp312-win_amd64.whl", hash = "sha256:6fbafe970d44ec06179c7884cdb160a90311e3d19da25bff970fab06123f0201" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/rasterio/rasterio-1.5.1-cp312-cp312-win_arm64.whl", hash = "sha256:e31b65231a631b0b59471aeae4423167d42f88da0c5ee5a519dc07deb7a4666b" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/rasterio/rasterio-1.5.1-cp313-cp313-macosx_14_0_arm64.whl", hash = "sha256:937944c445d4ea4d6969e9dbfcf305143c05fc4df2f8fadfa360cb2d0f65d7b0" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/rasterio/rasterio-1.5.1-cp313-cp313-macosx_15_0_x86_64.whl", hash = "sha256:e863b614cadad435a4394792b6cdc84324b15197629ad5a20c8d56cbc4eeff92" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/rasterio/rasterio-1.5.1-cp313-cp313-manylinux_2_28_aarch64.whl", hash = "sha256:b117209922784ef7948f702a0e9eb26be744f4b24d31f5eb97c45c0f04e2e4c3" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/rasterio/rasterio-1.5.1-cp313-cp313-manylinux_2_28_x86_64.whl", hash = "sha256:9093a9277559ac0f954d9a0266886bc4037e3ffd7a40837f6ea6486a96c8c258" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/rasterio/rasterio-1.5.1-cp313-cp313-win_amd64.whl", hash = "sha256:b3686865af2c67114f5dfb67df483db61bccad4078083a3dad481ea035e5d701" },
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/rasterio/rasterio-1.5.1-cp313-cp313-win_arm64.whl", hash = "sha256:0898355908ed3614ba1415532432cf4a1a308b189b2c9d8307a26a44bcb1713b" },
+]
+
+[[package]]
+name = "six"
+version = "1.17.0"
+source = { registry = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple" }
+sdist = { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/six/six-1.17.0.tar.gz", hash = "sha256:ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81" }
+wheels = [
+    { url = "https://europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/six/six-1.17.0-py2.py3-none-any.whl", hash = "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274" },
 ]
 
 [[package]]
