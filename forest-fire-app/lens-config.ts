@@ -7,6 +7,7 @@ import {
 } from "@adk/lens-react";
 
 import forestFire from "./src/plugins/forest-fire-plugin";
+import treeCover from "./src/plugins/tree-cover-plugin";
 
 const REACT_CONFIG = {
   LOGO: getLensEnvVar("LOGO", ""),
@@ -52,6 +53,11 @@ const FEATURES = [
       forestFire({
         name: "Forest Fire",
         version: "1.0.0",
+      }),
+      treeCover({
+        name: "Tree Cover",
+        version: "1.0.0",
+        tilesUrl: "http://localhost:9000/skyral-foundations/forest-fire/tiles",
       }),
     ],
   },
