@@ -24,8 +24,7 @@ FROM ${BASE_IMAGE}
 WORKDIR /project
 COPY --from=builder /project/.venv ./.venv
 COPY --from=builder /project/src ./src
-# Leave this commented out for now
-#COPY colors.txt .
+COPY colors.txt .
 
 # Simulate virtualenv being activated
 ENV VIRTUAL_ENV=/project/.venv
@@ -33,9 +32,8 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 EXPOSE 3030
 
-# Leave this commented out for now
 # Moving gdal2tiles on linux as gdal2tiles doesn't exist on PATH.
 # It is instead called `gdal2tiles.py`, despite seemingly not being a Python file.
-#RUN apt-get update -y && \
-#    apt-get install -y gdal-bin && \
-#    mv /usr/bin/gdal2tiles.py /usr/bin/gdal2tiles
+RUN apt-get update -y && \
+   apt-get install -y gdal-bin && \
+   mv /usr/bin/gdal2tiles.py /usr/bin/gdal2tiles

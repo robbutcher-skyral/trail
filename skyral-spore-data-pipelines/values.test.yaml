@@ -1,0 +1,13 @@
+global:
+  prometheus:
+    enabled: false
+
+cnpg:
+  instanceSize: "1Gi"
+  instanceReplicas: 1
+  backup:
+    enabled: false
+
+dagster:
+  ingress:
+    enabled: false

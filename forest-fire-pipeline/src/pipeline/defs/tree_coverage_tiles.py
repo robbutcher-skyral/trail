@@ -9,7 +9,7 @@ class TreeCoverageTilesConfig(dg.Config):
     colour_image: str = str(Path("color-relief.tif"))
     tiles_location: str = "tiles"
     min_zoom_level: str = "0"
-    max_zoom_level: str = "10"
+    max_zoom_level: str = "12"
     tile_destination_url: str = "s3://skyral-foundations/forest-fire/tiles" 
 
 @dg.asset
