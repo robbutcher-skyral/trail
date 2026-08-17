@@ -8,7 +8,7 @@ import json
 import sys
 import rasterio
 
-DEV_MODE = False  # Displays visualisation with matplotlib
+DEV_MODE = True  # Displays visualisation with matplotlib
 Image.MAX_IMAGE_PIXELS = None  # Allows large images to be read
 
 ## Model parameters
@@ -18,17 +18,14 @@ SPREAD_PROBABILITY = 0.5
 RANDOM_IGNITION_PROBABILITY = 0.000001
 
 # Simulation parameters
-# SIMULATION_ITERATIONS = 1000
-SIMULATION_ITERATIONS = 1
+SIMULATION_ITERATIONS = 1000
 STEP_BETWEEN_RESULTS = 50
 
 # Pixel Coords of Isle of Wight
 TOP = 37010
 LEFT = 34261
-# GRID_WIDTH = 500
-# GRID_HEIGHT = 500
-GRID_WIDTH = 5
-GRID_HEIGHT = 5
+GRID_WIDTH = 500
+GRID_HEIGHT = 500
 
 tif_transform = None
 
@@ -59,12 +56,10 @@ def read_grid_from_tif(file_path, crop_box):
 # Simple fire spread model
 def spread_fire(grid, tree_cover_grid):
     new_grid = grid.copy()
-    print(tree_cover_grid)
 
-    for i in range(len(new_grid)):
-        for j in range(len(new_grid)):
-            if new_grid[i, j] == 0: #TODO: 1
-                # print('fire!')
+    for i in range(GRID_HEIGHT):
+        for j in range(GRID_WIDTH):
+            if new_grid[i, j] == 1:
                 nearest_neighbours = [
                     (i, j - 1),
                     (i + 1, j),
@@ -76,11 +71,16 @@ def spread_fire(grid, tree_cover_grid):
                     in_bounds = nni >= 0 and nni < GRID_HEIGHT and nnj >= 0 and nnj < GRID_WIDTH
 
                     if in_bounds:
-                        print('in bounds', nni, nnj)
-                # print('for', i, j, 'tree_cover_grid', tree_cover_grid[i, j])
-            else:
-                print('no fire')
-    
+                        has_trees = tree_cover_grid[nni, nnj] > 0
+                        will_spread = random.random() < SPREAD_PROBABILITY
+                        high_coverage = tree_cover_grid[nni, nnj] > 30
+
+                        if has_trees and (will_spread or high_coverage):
+                            new_grid[nni, nnj] = 1
+
+            if tree_cover_grid[i, j] > 0 and random.random() < RANDOM_IGNITION_PROBABILITY:
+                new_grid[i, j] = 1
+
     return new_grid
 
 
@@ -118,7 +118,7 @@ def main(tree_coverage_tif_url, model_output_dir_url):
 
     # Simulation loop
     for t in range(SIMULATION_ITERATIONS):
-        print(f"Iteration:: {t}")
+        print(f"Iteration: {t+1}")
         grid = spread_fire(grid, tree_cover_grid)
 
         if t % STEP_BETWEEN_RESULTS == 0:
@@ -133,7 +133,6 @@ def main(tree_coverage_tif_url, model_output_dir_url):
             if t < SIMULATION_ITERATIONS - 1:
                 plt.clf()
 
-    exit()
     metadata_path = UPath(model_output_dir_url) / "metadata.json"
     with metadata_path.open("w") as f:
         f.write(

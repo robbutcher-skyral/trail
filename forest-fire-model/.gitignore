@@ -3,3 +3,5 @@ tmp*/
 .tmp*
 __pycache__/
 *.egg-info
+tree-coverage.tif
+model-output/
