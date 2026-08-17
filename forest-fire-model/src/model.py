@@ -8,7 +8,7 @@ import json
 import sys
 import rasterio
 
-DEV_MODE = True  # Displays visualisation with matplotlib
+DEV_MODE = False  # Displays visualisation with matplotlib
 Image.MAX_IMAGE_PIXELS = None  # Allows large images to be read
 
 ## Model parameters
@@ -18,14 +18,17 @@ SPREAD_PROBABILITY = 0.5
 RANDOM_IGNITION_PROBABILITY = 0.000001
 
 # Simulation parameters
-SIMULATION_ITERATIONS = 1000
+# SIMULATION_ITERATIONS = 1000
+SIMULATION_ITERATIONS = 1
 STEP_BETWEEN_RESULTS = 50
 
 # Pixel Coords of Isle of Wight
 TOP = 37010
 LEFT = 34261
-GRID_WIDTH = 500
-GRID_HEIGHT = 500
+# GRID_WIDTH = 500
+# GRID_HEIGHT = 500
+GRID_WIDTH = 5
+GRID_HEIGHT = 5
 
 tif_transform = None
 
@@ -56,11 +59,28 @@ def read_grid_from_tif(file_path, crop_box):
 # Simple fire spread model
 def spread_fire(grid, tree_cover_grid):
     new_grid = grid.copy()
-    #
-    # TODO: Implement fire spread logic
-    # Be sure to use SPREAD_PROBABILITY and RANDOM_IGNITION_PROBABILITY
-    #
-    print('spread logic exec')
+    print(tree_cover_grid)
+
+    for i in range(len(new_grid)):
+        for j in range(len(new_grid)):
+            if new_grid[i, j] == 0: #TODO: 1
+                # print('fire!')
+                nearest_neighbours = [
+                    (i, j - 1),
+                    (i + 1, j),
+                    (i, j + 1),
+                    (i - 1, j)
+                ]
+
+                for nni, nnj in nearest_neighbours:
+                    in_bounds = nni >= 0 and nni < GRID_HEIGHT and nnj >= 0 and nnj < GRID_WIDTH
+
+                    if in_bounds:
+                        print('in bounds', nni, nnj)
+                # print('for', i, j, 'tree_cover_grid', tree_cover_grid[i, j])
+            else:
+                print('no fire')
+    
     return new_grid
 
 
@@ -113,6 +133,7 @@ def main(tree_coverage_tif_url, model_output_dir_url):
             if t < SIMULATION_ITERATIONS - 1:
                 plt.clf()
 
+    exit()
     metadata_path = UPath(model_output_dir_url) / "metadata.json"
     with metadata_path.open("w") as f:
         f.write(
