@@ -1,0 +1,26 @@
+# Dependencies
+
+[project]
+name = "forest-fire-model"
+version = "0.1.0"
+description = "Forest Fire Model"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "universal-pathlib"
+]
+
+# Dev Dependencies
+[project.optional-dependencies]
+dev = [
+    "mypy"
+]
+
+# uv Configuration for Google Artifact Registry
+[tool.uv]
+keyring-provider = "subprocess"
+package = true
+
+[[tool.uv.index]]
+name = "skyral-python"
+url = "https://oauth2accesstoken@europe-west2-python.pkg.dev/skyr-artefacts/skyral-python/simple"
+default = true
