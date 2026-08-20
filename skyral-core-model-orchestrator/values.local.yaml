@@ -1,0 +1,39 @@
+# 'local' means running a full set-up, as close to production as
+# possible locally. If you're developing locally, use `local-dev`, this is
+# used for development purposes, which includes scaled down version of dependencies.
+global:
+  env: "local"
+  trackBranch: false
+  clusterTest: false
+  domain: "localhost"
+
+service:
+  namespace: "default"
+
+  grafana:
+    enabled: false
+
+observability:
+  logger:
+    enabled: false
+    level: "debug"
+    exportToStdout: true
+  metrics:
+    enabled: false
+  tracer:
+    enabled: false
+
+jobExecutor:
+  enabled: false
+
+dataplane:
+  enabled: false
+
+kafka:
+  enabled: false
+
+recordStore:
+  enabled: false
+
+autoscaling:
+  enabled: false
