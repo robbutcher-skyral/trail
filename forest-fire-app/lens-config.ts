@@ -1,4 +1,3 @@
-import { addLayerOrderingService } from "@adk/amphi-maps";
 import {
   FeaturesConfig,
   MapConfig,
@@ -35,12 +34,6 @@ const MAP_CONFIG = {
   // Set the zoom range for your map
   MIN_ZOOM: getLensEnvVar("MIN_ZOOM", "2"),
   MAX_ZOOM: getLensEnvVar("MAX_ZOOM", "20"),
-  OPERATORS: [
-    addLayerOrderingService(
-      [["background", "middle", "foreground"]],
-      "background",
-    ),
-  ],
   BASEMAPS: ["osm-positron"],
 } satisfies MapConfig;
 
@@ -53,6 +46,7 @@ const FEATURES = [
       forestFire({
         name: "Forest Fire",
         version: "1.0.0",
+        dataUrl: "http://localhost:9000/skyral-foundations/forest-fire",
       }),
       treeCover({
         name: "Tree Cover",

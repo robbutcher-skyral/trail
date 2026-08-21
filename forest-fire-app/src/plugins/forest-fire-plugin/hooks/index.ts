@@ -1,85 +1,52 @@
-/**
- * Example hooks for your plugin. Replace with your own logic:
- * - useXxxData: fetch from API/Redux instead of mock data
- * - useXxxLayer: keep or adapt for your layers
- * - useMapFocus: reuse as-is or adjust
- * - useXxxHover: keep or replace with your hover/highlight logic
- */
-import { useMemo, useCallback, useSyncExternalStore } from "react";
-import { BehaviorSubject } from "rxjs";
-import { layerManager, mapContext$ } from "@adk/lens-react";
-import { useMapContext } from "@adk/amphi-maps";
-import { LAYER_IDS } from "../constants";
-import { MOCK_FORESTFIRES } from "../data";
-import type { ForestFireItem, ForestFireLayerMetadata } from "../types";
+import { mapContext$ } from "@adk/lens-react";
+import { useEffect, useState } from "react";
+import {
+  useMapContext,
+  useDeckGridCellLayer,
+  type DeckLayerProps,
+} from "@adk/amphi-maps";
+import type { GridCellLayerProps } from "@deck.gl/layers";
+import type { FireData, SimulationMetadata } from "../types";
 
-/** Example: returns mock data. Replace with real data source (API, Redux, etc.). */
-export function useForestFireData() {
-  return useMemo(() => ({ items: MOCK_FORESTFIRES }), []);
+export function useSimulationMetadata(dataUrl: string) {
+  const [metadata, setMetadata] = useState<SimulationMetadata | null>(null);
+
+  useEffect(() => {
+    const fetchMetadata = async () => {
+      const response = await fetch(`${dataUrl}/model-output/metadata.json`);
+      const data = await response.json();
+      setMetadata(data);
+    };
+    fetchMetadata();
+  }, [dataUrl]);
+
+  return metadata;
 }
 
-/** Example: layer visibility and metadata. Adapt if you have multiple layers. */
-export function useForestFireLayer() {
-  const { getLayer, toggleLayer, setLayerVisibility } = layerManager.useLayerManager();
-  const mainLayer = getLayer(LAYER_IDS.MAIN);
-  return useMemo(
-    () => ({
-      isVisible: mainLayer?.visible ?? false,
-      toggle: () => toggleLayer(LAYER_IDS.MAIN),
-      setVisible: (visible: boolean) => setLayerVisibility(LAYER_IDS.MAIN, visible),
-      color: (mainLayer?.metadata as ForestFireLayerMetadata | undefined)?.color,
-    }),
-    [mainLayer, toggleLayer, setLayerVisibility]
-  );
-}
-
-let previousViewState: { center: [number, number]; zoom: number; pitch: number; bearing: number } | null = null;
-
-/** Example: fly map to position and restore view. Reuse as-is or customise. */
-export function useMapFocus() {
+export function useFireData(dataUrl: string, iteration: number) {
+  const [fireData, setFireData] = useState<FireData[]>([]);
   const { mapInstance } = useMapContext(mapContext$);
-  const flyTo = useCallback(
-    (position: [number, number], zoom = 14) => {
-      if (!mapInstance) return;
-      const center = mapInstance.getCenter();
-      previousViewState = {
-        center: [center.lng, center.lat],
-        zoom: mapInstance.getZoom(),
-        pitch: mapInstance.getPitch(),
-        bearing: mapInstance.getBearing(),
-      };
-      mapInstance.flyTo({ center: position, zoom, duration: 1000, essential: true });
-    },
-    [mapInstance]
-  );
-  const restorePreviousView = useCallback(() => {
-    if (!mapInstance || !previousViewState) return;
-    mapInstance.flyTo({
-      center: previousViewState.center,
-      zoom: previousViewState.zoom,
-      pitch: previousViewState.pitch,
-      bearing: previousViewState.bearing,
-      duration: 800,
-      essential: true,
-    });
-    previousViewState = null;
-  }, [mapInstance]);
-  return { flyTo, restorePreviousView, hasPreviousView: previousViewState !== null };
+
+  useEffect(() => {
+    const fetchFireData = async () => {
+      const response = await fetch(`${dataUrl}/model-output/${iteration}.json`);
+      const data = await response.json();
+      setFireData(data);
+    };
+    fetchFireData();
+  }, [dataUrl, iteration, mapInstance]);
+
+  return fireData;
 }
 
-const hoveredId$ = new BehaviorSubject<string | null>(null);
+export function useFireLayer(fireData: FireData[]) {
+  const props: DeckLayerProps<GridCellLayerProps<FireData>> = {
+    data: fireData,
+    extruded: false,
+    getPosition: (d) => [Number(d.longitude), Number(d.latitude)],
+    cellSize: 30,
+    getFillColor: (d) => (d.value === 1 ? [245, 144, 66] : [0, 0, 0, 0]),
+  };
 
-/** Example: shared hover state for list/map sync. Replace if you need different behaviour. */
-export function useForestFireHover() {
-  const hoveredId = useSyncExternalStore(
-    (cb) => {
-      const sub = hoveredId$.subscribe(cb);
-      return () => sub.unsubscribe();
-    },
-    () => hoveredId$.getValue(),
-    () => hoveredId$.getValue()
-  );
-  const setHoveredId = useCallback((id: string | null) => hoveredId$.next(id), []);
-  const isHovered = useCallback((id: string) => hoveredId === id, [hoveredId]);
-  return { hoveredId, setHoveredId, isHovered };
+  useDeckGridCellLayer(mapContext$, props);
 }

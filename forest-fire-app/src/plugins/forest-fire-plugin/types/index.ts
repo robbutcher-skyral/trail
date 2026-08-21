@@ -1,15 +1,10 @@
-/** Replace: define fields to match your plugin's domain data. */
-export interface ForestFireItem {
-  id: string;
-  label: string;
-  position: [number, number];
-  lastSeen: string;
+export interface FireData {
+  latitude: string;
+  longitude: string;
+  value: number;
 }
 
-/** Replace: extend if your layer metadata needs more fields. */
-export interface ForestFireLayerMetadata {
-  title: string;
-  group: string;
-  color?: string;
-  description?: string;
+export interface SimulationMetadata {
+  number_of_iterations: number;
+  step_between_results: number;
 }

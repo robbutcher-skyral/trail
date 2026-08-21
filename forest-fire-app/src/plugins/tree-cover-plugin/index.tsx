@@ -24,16 +24,19 @@ const treeCoverPlugin = (config: TreeCoverPluginConfig) => {
       maxzoom: 12,
     });
 
-    map.addLayer({
-      id: LAYER_ID,
-      type: "raster",
-      source: "tree-cover",
-      paint: {
-        "raster-opacity": 0.75,
+    map.addLayer(
+      {
+        id: LAYER_ID,
+        type: "raster",
+        source: "tree-cover",
+        paint: {
+          "raster-opacity": 0.75,
+        },
+        minzoom: 0,
+        maxzoom: 22,
       },
-      minzoom: 0,
-      maxzoom: 22,
-    });
+      "unorderedLayerUpperBound"
+    );
   };
 
   addLayer();
